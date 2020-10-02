@@ -1,7 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
-        <div class="container">
+        <div class="homepageOpt">
             <a class="homepageA" href="volunteer_page">ДОБРОВОЛЕЦ</a>
-            <a class="homepageA" href="user_page">УЧАСТНИК</a>
+        </div>
+        <div class="homepageOpt">
+            <form>
+                <label for="buildingCode">УЧАСТНИК</label></br>
+                <input type="text" id='buildingCode'></br>
+                <input type="submit" value='Включи се'>
+            </form>
         </div>
 {%endblock content%}
