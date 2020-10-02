@@ -7,3 +7,7 @@
 .lightdark {
     background-color: #028090;
 }
+input[type="text"].bigBox {
+    height: 200px;
+    font-size: 14px;
+}
