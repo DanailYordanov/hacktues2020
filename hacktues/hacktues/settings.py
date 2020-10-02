@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
 
     'users.apps.UsersConfig',
+    'main.apps.MainConfig',
 
     'allauth',
     'allauth.account',
@@ -61,7 +62,7 @@ ROOT_URLCONF = 'hacktues.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
