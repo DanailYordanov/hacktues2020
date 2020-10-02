@@ -2,6 +2,16 @@ body {
     background-color: #02c39a;
     color: white;
 }
-div {
-    text-align: center;
+label {
+    color: white;
+}
+а {
+    text-decoration: none;
+}
+div.container {
+    padding: 5%;
+}
+input[type=submit] {
+    background-color: #028090;
+    color: white;
 }

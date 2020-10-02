@@ -1,4 +1,15 @@
 {% extends 'base.html'%}
 {% block content %}
-    <div>Volunteer page</div>
+    <div class="container">
+        <div>
+            Login
+            <form>
+                <label for="volName">Име</label>
+                <input type="text" id="volName">
+                <label for="volPass">Парола</label>
+                <input type="password" id="volPass">
+                <input type="submit" value="Влез">
+            </form>
+        </div>
+    </div>
 {% endblock content%}

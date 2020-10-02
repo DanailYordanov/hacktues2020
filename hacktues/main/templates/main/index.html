@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
+    <div class="container">
         <div class="homepageOpt">
-            <a class="homepageA" href="volunteer_page">ДОБРОВОЛЕЦ</a>
+            <a class="homepageA" href="{% url 'main-volunteer_page'%}">ДОБРОВОЛЕЦ</a>
         </div>
         <div class="homepageOpt">
             <form>
@@ -10,4 +11,5 @@
                 <input type="submit" value='Включи се'>
             </form>
         </div>
+    </div>
 {%endblock content%}
