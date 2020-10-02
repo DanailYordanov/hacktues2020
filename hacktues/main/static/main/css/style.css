@@ -1,3 +1,11 @@
 body {
-    background-color: grey;
+    background-color: #02c39a;
+}
+.homepageA {
+    display: inline;
+    text-decoration: none;
+    background-color: #00a896;
+    padding: 22%;;
+div {
+    text-align: center;
 }

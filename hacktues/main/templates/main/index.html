@@ -1,11 +1,7 @@
-<!doctype html>
-<html>
-    <head>
-        {% load static %}
-        <link rel="stylesheet" href="{% static 'main\css\style.css' %}">
-    </head>
-    <body>
-        <div><a href="volunteer_page">VOLUNTEER</a></div>
-        <div><a href="user_page">USER</a></div>
-    </body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+        <div class="container">
+            <a class="homepageA" href="volunteer_page">ДОБРОВОЛЕЦ</a>
+            <a class="homepageA" href="user_page">УЧАСТНИК</a>
+        </div>
+{%endblock content%}
