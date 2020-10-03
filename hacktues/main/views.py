@@ -18,3 +18,7 @@ def create_event(request):
 
 def user(request):
     return render(request, 'main/user.html')
+
+def create_group(request):
+    return render(request, 'main/create_group.html')
+>>>>>>> 9390b49c4d119c3d201dfe449beccf02663eb8f1
