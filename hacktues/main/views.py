@@ -6,5 +6,12 @@ def index(request):
 
 def volunteer_page(request):
     return render(request, 'main/volunteer_page.html')
+
 def user_page(request):
     return render(request, 'main/user_page.html')
+
+def volunteer_profile(request):
+    return render(request, 'main/volunteer_profile.html')
+
+def create_event(request):
+    return render(request, 'main/create_event.html')

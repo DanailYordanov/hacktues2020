@@ -1,15 +1,26 @@
 body {
     background-color: #287ec9;
     color: white;
+    font-size:18px;
+    z-index: -1;
 }
 label {
     color: white;
+    font-size: 18px;
 }
-а {
+a:hover {
+    background-color: black;
+}
+а:link, a:visited {
     text-decoration: none;
+    background-color:#00a896;
+    padding: 50px;
+}
+div.homepageOpt {
+    margin: 1%;
 }
 div.container {
-    padding: 5%;
+    padding: 0% 2%;
 }
 input[type=submit] {
     background-color: #028090;
@@ -21,4 +32,7 @@ form{
 	border-radius: 5px;
 	padding: 3%;
 	margin: 3%;
+}
+input[type=text] {
+    background-color: #028090;
 }
