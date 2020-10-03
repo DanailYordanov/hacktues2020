@@ -1,49 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-<<<<<<< HEAD
-    <style>
-        div{
-            height: 100%;
-            width: 50%;
-            color: black;
-            display: flex;
-            position: fixed;
-            align-items: center;
-            justify-content: center;
-        }
-       
-        div:hover{
-            background-color: #1d578a;
-            color: white;
-        }
-        #vol{
-            top: 0;
-            left: 0;
-        }
-        #cl{
-            top: 0;
-            left: 50%;
-        }
-    </style>
-
-    <a href="{% url 'main-volunteer_page'%}">
-        <div id="vol">
-            <h1>Доброволец</h1>
-        </div>
-    </a>
-    <a href="{% url 'main-user_page'%}">
-        <div id="cl">
-            <h1>Участник</h1>
-        </div>
-    </a>
-    <!--<div class="container">
-        <div class="homepageOpt">
-            <a class="homepageA centered" href="{% url 'main-volunteer_page'%}">ДОБРОВОЛЕЦ</a>
-=======
     <div class="row">
         <div class="col s6 light-blue darken-2 z-depth-5 fullPage valign-wrapper center-align">
             <a class="white-text center-align" href="{% url 'main-volunteer_page'%}"><h1>ДОБРОВОЛЕЦ</h1></a>
->>>>>>> 3fea7f4e1f115f064661175f33dd9f11ca9c2343
         </div>
         <div class="col s6 light-blue darken-1 valign-wrapper center-align fullPage">
             <form>
