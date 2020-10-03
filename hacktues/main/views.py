@@ -16,9 +16,11 @@ def volunteer_profile(request):
 def create_event(request):
     return render(request, 'main/create_event.html')
 
-def user(request):
+def room_user(request):
     return render(request, 'main/user.html')
+
+def room_volunteer(request):
+    return render(request, 'main/volunteer.html')
 
 def create_group(request):
     return render(request, 'main/create_group.html')
->>>>>>> 9390b49c4d119c3d201dfe449beccf02663eb8f1
