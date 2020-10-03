@@ -1,4 +1,85 @@
 {% extends 'base.html'%}
 {% block content %}
-    <div>User page</div>
+	<style>
+		.v, .active{
+			text-align: center;
+			margin-left: 3%;
+			float: left;
+			text-align: center;
+		}
+		h5.active{
+			background-color: #1d578a;
+			color: white;
+		}
+		.login{
+			position: fixed;
+			top: 5%;
+			left: 5%;
+			float:left;
+		}
+		label {
+		    text-align: right;
+		    clear: both;
+		    float:left;
+		    margin-right:15px;
+		}
+		.a{
+			float:left;
+			margin-right:20px;
+		}
+		.b{
+			float:left;
+		}
+	</style>
+
+	<h5 id="login" class="active">Вход</h5>
+	<h5 id="register" class="v">Регистрация</h5><br>
+
+	<form style="visibility: visible;" class="login" id="login_form">
+		<label for="name"><h5>Парола:</h5></label><br>
+		<input type="text" id="pwd"><br>
+		<input type="submit" value="Вход">
+	</form> 
+
+	<form style="visibility: hidden;" class='login' id="register_form">
+		<div class='a' style="float:left;margin-right:20px;">
+			<label for="name"><h5>Име</h5></label><br>
+			<input type="text" id="fname">
+		</div>
+		<div class='b' style="float: left;">
+		<label for="name"><h5>Фамилия:</h5></label><br>
+		<input type="text" id="lname">
+		</div>
+		<br>
+		<div class='a'>
+		<label for="name"><h5>Парола:</h5></label><br>
+		<input type="text" id="pwd">
+		</div>
+		<div class='b'>
+		<label for="name"><h5>Потвърди парола:</h5></label><br>
+		<input type="text" id="pwd_c">
+		</div>
+		<label for="name"><h5>Адрес:</h5></label><br>
+		<input type="text" id="adress"><br>
+		<input type="submit" value="Вход">
+	</form> 
+
+	<script type="text/javascript">
+		document.getElementById("login").addEventListener("click", change);
+		document.getElementById("register").addEventListener("click", change);
+
+		function change(event){
+			document.getElementById(event.target.id).className="active";
+			document.getElementById(event.target.id+"_form").style.visibility="visible";
+			if(event.target.id=="login"){
+				document.getElementById("register").className="v";
+				document.getElementById("register_form").style.visibility="hidden";
+			}else{
+				document.getElementById("login").className="v";
+				document.getElementById("login_form").style.visibility="hidden";
+
+			}
+		
+		}
+	</script>
 {% endblock content %}

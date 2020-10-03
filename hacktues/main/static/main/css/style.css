@@ -1,5 +1,5 @@
 body {
-    background-color: #02c39a;
+    background-color: #287ec9;
     color: white;
 }
 label {
@@ -14,4 +14,11 @@ div.container {
 input[type=submit] {
     background-color: #028090;
     color: white;
+}
+
+form{
+	border-style: solid;
+	border-radius: 5px;
+	padding: 3%;
+	margin: 3%;
 }
