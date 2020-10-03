@@ -1,22 +1,20 @@
 {% extends 'base.html' %}
 {% block content%}
     <div class="container">
-        <nav>
-            <ul>
+            <ul class="nav">
                 <li><a href='{% url "main-volunteer_profile"%}'>Върни се обратно към профила си</a></li>
             </ul>
-        </nav>
         <div class="centered">
             <form>
                 <label for="eventName">Име за събитието</label></br>
-                <input type="text" id="eventName">
+                <input type="text" id="eventName"></br>
                 <label for="eventType">Изберете типа на събитието:</label></br>
                 <select name="eventType" id="eventType">
                     <option value="food">Храна</option>
                     <option value="medicine">Лекарства</option>
                 </select>
                 </br>
-                <label for="eventDesc">Описание на събитието</label></br>
+                <label for="eventDesc">Описание на събитието:</label></br>
                 <input type="text" class="bigBox" id="eventDesc">
                 <input type="submit" value="Заяви събитие">
             </form>
