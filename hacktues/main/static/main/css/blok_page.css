@@ -9,6 +9,12 @@ body{
 	height: 15%;
 
 }
+.txt_nav{
+	position: absolute;
+	top:15%;
+	left: 7%;
+	color: white;
+}
 
 #left_menu, div.side_nav, .img_nav{
 	position: fixed;
@@ -19,12 +25,3 @@ body{
 	padding: 0px;
 }
 
-.txt_nav{
-	position: absolute;
-	top:15%;
-	left: 5%;
-	width: 10%;
-	height: 85%;
-	margin-right: 5%;
-	float: right;
-}
