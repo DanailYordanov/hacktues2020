@@ -1,28 +1,11 @@
 body {
-    background-color: #02c39a;
-    color: white;
+    color: black;
     font-size:18px;
     z-index: -1;
 }
-label {
-    color: white;
-    font-size: 18px;
+div.fullPage {
+    height: 100vh;
+    text-align: center;
+    display:block;
 }
-a:hover {
-    background-color: black;
-}
-а:link, a:visited {
-    text-decoration: none;
-    background-color:#00a896;
-    padding: 50px;
-}
-div.homepageOpt {
-    margin: 1%;
-}
-div.container {
-    padding: 0% 2%;
-}
-input[type=submit] {
-    background-color: #028090;
-    color: white;
-}
+
