@@ -1,7 +1,7 @@
 {% extends 'base.html'%}
 {% block content %}
 	<style>
-		.v, .active{
+		.v, h5.active{
 			text-align: center;
 			margin-left: 3%;
 			float: left;
@@ -38,7 +38,7 @@
 	<form style="visibility: visible;" class="login" id="login_form">
 		<label for="name"><h5>Парола:</h5></label><br>
 		<input type="text" id="pwd"><br>
-		<input type="submit" value="Вход">
+		<input type="submit" href="main-user" value="Вход">
 	</form> 
 
 	<form style="visibility: hidden;" class='login' id="register_form">
@@ -61,7 +61,7 @@
 		</div>
 		<label for="name"><h5>Адрес:</h5></label><br>
 		<input type="text" id="adress"><br>
-		<input type="submit" value="Вход">
+		<input type="submit" href="main-user" value="Вход">
 	</form> 
 
 	<script type="text/javascript">

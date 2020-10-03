@@ -15,3 +15,6 @@ def volunteer_profile(request):
 
 def create_event(request):
     return render(request, 'main/create_event.html')
+
+def user(request):
+    return render(request, 'main/user.html')

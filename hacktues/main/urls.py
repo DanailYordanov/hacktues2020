@@ -8,4 +8,5 @@ urlpatterns = [
     path('user_login', views.user_page, name='main-user_page'),
     path('volunteer', views.volunteer_profile, name='main-volunteer_profile'),
     path('create_event', views.create_event, name='main-create_event'),
+    path('user',views.user,name='main-user'),
 ]
