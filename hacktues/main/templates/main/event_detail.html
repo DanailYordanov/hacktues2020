@@ -13,9 +13,9 @@
                 <h2>Списъци:</h2>
                 {%for list in lists %}
                     <h4 class="teal-text text-lighten-2">{{list.author}}</h4>
-                    <ul>
+                    <ul class="collection">
                     {%for item in list.items%}
-                        <li>{{item}}</li>
+                        <li class="collection-item blue-text">{{item}}</li>
                     {%endfor%}
                     </ul>
                     </br>
