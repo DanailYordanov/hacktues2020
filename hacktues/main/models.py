@@ -3,6 +3,7 @@ from django.conf import settings
 
 
 class Room(models.Model):
+    name = models.CharField(max_length=30)
     authentication_code = models.CharField(max_length=5)
 
 
