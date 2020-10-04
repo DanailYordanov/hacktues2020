@@ -17,7 +17,8 @@
 							</p>
 						</div>
 						<div class="card-action">
-							<a class="grey-text" href="#">Изпрати списък</a>
+							<a class="grey-text" href="{% url 'main-create-event' room_id=room.id %}">Изпрати списък</a>
+							<a class="grey-text" href="{% url 'main-event-detail' pk=event.id %}">Виж списък</a>
 						</div>
 					</div>
 				</div>
