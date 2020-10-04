@@ -8,4 +8,6 @@ div.fullPage {
     text-align: center;
     display:block;
 }
-
+input[type="submit"] {
+    padding: 20px;
+}

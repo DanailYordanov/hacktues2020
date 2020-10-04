@@ -5,12 +5,13 @@
             <a class="white-text center-align" href="{% url 'login'%}"><h1>ДОБРОВОЛЕЦ</h1></a>
         </div>
         <div class="col s6 light-blue darken-1 valign-wrapper center-align fullPage">
-            <form>
+            <form method="POST">
+                {% csrf_token %}
                 <label for="buildingCode"><a class="white-text"><h1>УЧАСТНИК</h1></a></label></br>
                 <input type="text" id='buildingCode'></br>
                 <input class="waves-effect waves-light btn-large" type="submit" value='Включи се'>
             </form>
         </div>
-    </div> -->
+    </div>
 
 {%endblock content%}
