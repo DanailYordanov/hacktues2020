@@ -22,7 +22,11 @@
 				{%endfor%}
 			</div>
 			<div class="col s4 light-blue darken-1 valign-wrapper center-align fullPage"">
-
+				<ul class="collection">
+					{% for user in users %}
+						<li class="collection-item">{{user}}</li>
+					{%endfor%}
+				</ul>
 			</div>
 		</div>
 	</div>

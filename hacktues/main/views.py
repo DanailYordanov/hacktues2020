@@ -28,7 +28,8 @@ def create_event(request):
 def room_user(request):
     return render(request, 'main/room_user.html')
 
-
+def choice(request):
+    return render(request, 'main/choice.html')
 def room_volunteer(request):
     context = {
         'users': [
@@ -72,7 +73,7 @@ def create_room(request):
             RoomMember.objects.create(
                 room=instance, user=request.user, is_moderator=True)
 
-            return redirect('main-index')
+            return redirect('room')
 
     else:
         form = CreateRoomForm()

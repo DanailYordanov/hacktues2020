@@ -11,5 +11,6 @@ urlpatterns = [
     path('room_user/', views.room_user, name='main-room_user'),
     path('room_volunteer/', views.room_volunteer, name='main-room_volunteer'),
     path('create_room/', views.create_room, name='main-create-room'),
+    path('choice/', views.choice, name='main-choice'),
 
 ]

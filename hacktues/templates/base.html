@@ -12,7 +12,7 @@
 
 <body>
     <header class="teal lighten-5 z-depth-2">
-        <image width="12%" height="6%" id="logo" src="{%static 'main/logo2_2.png'%}"></image>
+        <a href="{% url 'main-index' %}"><image width="12%" height="6%" id="logo" src="{%static 'main/logo.png'%}"></image></a>
     </header>
     {% block content %}
     {% endblock content %}
