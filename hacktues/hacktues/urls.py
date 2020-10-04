@@ -7,4 +7,5 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('register/', auth_views.register, name='register'),
     path('login/', auth_views.login, name= 'login'),
+    path('password_reset', auth_views.password_reset, name='password_reset'),
 ]
