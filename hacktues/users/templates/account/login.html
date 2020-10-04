@@ -6,8 +6,40 @@
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
+<style>
+  #login_button {
+    float:right;
+    text-align: center; 
+  }
 
-<h3>{% trans "Влезте" %}</h3>
+  #container{
+    margin-top: 2%;
+    padding: 2%;
+    border-style: double;
+
+  }
+</style>
+<div class="col s6 left-align">
+<div class="container" id="container">
+    
+<h4>{% trans "Вход" %}</h4>
+
+<form class="login" method="POST" action="{% url 'account_login' %}">
+  {% csrf_token %}
+  {{ form.as_p }}
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  <div class="section">    
+    <label for="email"><h6>Имейл</h6></label>
+    <input type="text" id="email">
+    <label for="pw"><h6>Парола</h6></label>
+    <input type="text" id="pw">
+
+  </div>
+  <button id="login_button" class="primaryAction teal lighten-5 z-depth-2" type="submit"><h5>{% trans "Влез" %}</h5></button>
+  <a class="button secondaryAction" href="{% url 'password_reset' %}">{% trans "Забравили сте паролата си?" %}</a>
+</form>
 
 {% get_providers as socialaccount_providers %}
 
@@ -16,6 +48,7 @@
   of your existing third party accounts. Or, <a href="{{% url 'register' %}}">регистрирай</a>
   for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 
+<div class="divider"></div>
 <div class="socialaccount_ballot">
 
   <ul class="socialaccount_providers">
@@ -29,18 +62,13 @@
 {% include "socialaccount/snippets/login_extra.html" %}
 
 {% else %}
-<p>{% blocktrans %}Ако нямате направена регистрация се регитрирайте
+<p>{% blocktrans %}Ако нямате направена регистрация, може да се регистрирате
   <a href="{{% url 'register' %}}">тук</a>.{% endblocktrans %}</p>
 {% endif %}
 
-<form class="login" method="POST" action="{% url 'account_login' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <a class="button secondaryAction" href="{% url 'password_reset' %}">{% trans "Забравили сте паролата си?" %}</a>
-  <button class="primaryAction" type="submit">{% trans "Влез" %}</button>
-</form>
+
+
+</div>
+</div>
 
 {% endblock %}
