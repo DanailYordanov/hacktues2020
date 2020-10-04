@@ -18,7 +18,7 @@ def user_login(request):
 
 
 def volunteer_profile(request):
-    return render(request, 'main/volunteer_profile.html', context)
+    return render(request, 'main/volunteer_profile.html')
 
 
 def create_event(request):
