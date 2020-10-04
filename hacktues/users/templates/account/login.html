@@ -13,7 +13,7 @@
 
 {% if socialaccount_providers %}
 <p>{% blocktrans with site.name as site_name %}Please sign in with one
-  of your existing third party accounts. Or, <a href="{{% url 'register' %}}">регистрирай</a>
+  of your existing third party accounts. Or, <a href="{{% url 'account_signup' %}}">регистрирай</a>
   for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 
 <div class="socialaccount_ballot">
@@ -39,7 +39,7 @@
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
-  <a class="button secondaryAction" href="{% url 'password_reset' %}">{% trans "Забравили сте паролата си?" %}</a>
+  <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Забравили сте паролата си?" %}</a>
   <button class="primaryAction" type="submit">{% trans "Влез" %}</button>
 </form>
 
