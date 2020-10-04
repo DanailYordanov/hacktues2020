@@ -18,6 +18,20 @@ def user_login(request):
 
 
 def volunteer_profile(request):
+    context = {
+        'user': {
+            'first_name': 'Калоян',
+            'last_name': 'Георгиев',
+            'login': 'kalooo914@gmail.com',
+            'rooms': [
+                {
+                    'id': 1,
+                    'name': 'бл. 822 ж.к. Люлин 8',
+                }
+            ]
+
+        }
+    }
     return render(request, 'main/volunteer_profile.html')
 
 def create_event(request):
@@ -90,7 +104,7 @@ def create_room(request):
         if form.is_valid():
 
             authentication_code = get_random_string(5)
-
+            moderators = [request.user]
             instance = form.save(commit=False)
             instance.authentication_code = authentication_code
             form.save()
