@@ -7,20 +7,25 @@
 {% block content %}
 
 <div class="container blue fullPage white-text z-depth-3">
-<form class="signup blue" id="signup_form" method="post" action="{% url 'account_user_signup' %}">
+<form class="signup blue" id="signup_form" method="post" action="{% url 'account_signup' %}">
   {% csrf_token %}
   <div class="row">
     <div class="col l4 offset-l1">
       <h1 class="">{% trans "Регистрация" %}</h1>
       <p>{% blocktrans %}Вече имате регистрация? Тогава можете да <a href="{{ login_url }}" class="black-text">влезете</a>.{% endblocktrans %}</p>
-      <label class="white-text left">Електронна поща</label>
-      <input name="password" class="blue lighten-2">
-      <label class="white-text left ">Име</label>
-      <input name="name" class="blue lighten-2">
-      <label class="white-text left">Парола</label>
-      <input type="password" name="password" class="blue lighten-2">
-      <label class="white-text left">Повтори парола</label>
-      <input type="password" name="password" class="blue lighten-2">
+      
+      <!--{{ form.as_p }}-->
+      {{form.errors}}
+      <label class="white-text left">Електронна поща:</label>
+      <input type="email" name="email" class="blue lighten-2">
+      <label class="white-text left ">Име:</label>
+      <input type="text" name="first_name" class="blue lighten-2">
+      <label class="white-text left ">Фамилия:</label>
+      <input type="text" name="last_name" class="blue lighten-2">
+      <label class="white-text left">Парола:</label>
+      <input type="password" name="password1" class="blue lighten-2">
+      <label class="white-text left">Повтори парола:</label>
+      <input type="password" name="password2" class="blue lighten-2">
     </div>
   </div>
   <div class="row">

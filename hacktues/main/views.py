@@ -18,17 +18,55 @@ def user_login(request):
 
 
 def volunteer_profile(request):
-    return render(request, 'main/volunteer_profile.html')
+    context = {
+        'user': {
+            'first_name': 'Калоян',
+            'last_name': 'Георгиев',
+            'login': 'kalooo914@gmail.com',
+            'rooms': [
+                {
+                    'id': 1,
+                    'name': 'бл. 822 ж.к. Люлин 8',
+                }
+            ]
 
+        }
+    }
+    return render(request, 'main/volunteer_profile.html')
 
 def create_event(request):
     return render(request, 'main/create_event.html')
 
 
 def room_user(request):
-    return render(request, 'main/room_user.html')
+    context = {
+        'users': [
+            'Пенка Георгиева',
+            'Радка Тодорова',
+            'Васил Тодоров',
+            'Илияна Вълева'
+        ],
+        'events': [
+            {
+                'title': 'ПЪРВО СЪБИТИЕ!',
+                'author':'Калоян',
+                'content': 'Ще посещавам Kaufland в квартала на 6 октомври около 12 часа. Ако имате заявки пратете списък!',
+                'id': 1,
+                'date_posted': '4 Октомври 2020 17:39'
+            },
+            {
+                'title': 'Събитие второ',
+                'author': 'Дани',
+                'content': 'Това е второто събитие',
+                'id': 2,
+                'date_posted': '2 Октомври 2020 14:56'
+            }
+        ]
+    }
+    return render(request, 'main/room_user.html', context)
 
-
+def choice(request):
+    return render(request, 'main/choice.html')
 def room_volunteer(request):
     context = {
         'users': [
@@ -40,15 +78,17 @@ def room_volunteer(request):
         'events': [
             {
                 'title': 'ПЪРВО СЪБИТИЕ!',
-                'author': 'Калоян',
-                'content': 'Това е първото събитие',
+                'author':'Калоян',
+                'content': 'Ще посещавам Kaufland в квартала на 6 октомври около 12 часа. Ако имате заявки пратете списък!',
                 'id': 1,
+                'date_posted': '4 Октомври 2020 17:39'
             },
             {
                 'title': 'Събитие второ',
                 'author': 'Дани',
                 'content': 'Това е второто събитие',
                 'id': 2,
+                'date_posted': '2 Октомври 2020 14:56'
             }
         ]
     }
@@ -64,7 +104,7 @@ def create_room(request):
         if form.is_valid():
 
             authentication_code = get_random_string(5)
-
+            moderators = [request.user]
             instance = form.save(commit=False)
             instance.authentication_code = authentication_code
             form.save()
@@ -72,7 +112,7 @@ def create_room(request):
             RoomMember.objects.create(
                 room=instance, user=request.user, is_moderator=True)
 
-            return redirect('main-index')
+            return redirect('room')
 
     else:
         form = CreateRoomForm()
