@@ -4,7 +4,7 @@
 
 
 <div class="container fullPage white-text blue z-depth-3"> 
-  <form class="login blue" method="POST" action="{% url 'account_signup' %}">
+  <form class="login blue" method="POST" action="{% url 'account_login' %}">
     <div class="row">
       <div class="col 11 offset-l1">
         {% csrf_token %}
@@ -13,12 +13,13 @@
         {% endif %}
         <h4 class="left">Вход</h4>
         <div class="section">     
-          <!--<br><br><br>
+          <br><br><br>
+          {{form.errors}}
           <label class="white-text left" for="email"><h6>Електронна поща</h6></label>
-          <input type="text" id="email"></br>
+          <input name="login" type="text" id="email"></br>
           <label class="white-text left" for="pw"><h6>Парола</h6></label>
-          <input type="password" id="pw">-->
-          {{ form.as_p }}
+          <input name="password" type="password" id="pw">
+          <!--{{ form.as_p }}-->
           <button class="btn black-text primaryAction teal lighten-5 z-depth-2" style="float: right;"type="submit">Влез</button>
         </div>
       
