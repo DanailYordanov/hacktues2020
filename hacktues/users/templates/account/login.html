@@ -45,7 +45,7 @@
 
 {% if socialaccount_providers %}
 <p>{% blocktrans with site.name as site_name %}Please sign in with one
-  of your existing third party accounts. Or, <a href="{{% url 'register' %}}">регистрирай</a>
+  of your existing third party accounts. Or, <a href="{{% url 'account_signup' %}}">регистрирай</a>
   for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 
 <div class="divider"></div>
@@ -65,10 +65,4 @@
 <p>{% blocktrans %}Ако нямате направена регистрация, може да се регистрирате
   <a href="{{% url 'register' %}}">тук</a>.{% endblocktrans %}</p>
 {% endif %}
-
-
-
-</div>
-</div>
-
 {% endblock %}
