@@ -1,73 +1,38 @@
 {% extends "account/base.html" %}
-
-{% load i18n %}
-{% load account socialaccount %}
-
-{% block head_title %}{% trans "Sign In" %}{% endblock %}
-
 {% block content %}
 <style>
   #login_button {
     float:right;
     text-align: center; 
   }
-
-  #container{
+/*  #container{
     margin-top: 2%;
     padding: 2%;
     border-style: double;
 
-  }
+  }*/
 </style>
-<div class="col s6 left-align">
-<div class="container" id="container">
-    
-<h4>{% trans "Вход" %}</h4>
 
-<form class="login" method="POST" action="{% url 'account_signup' %}">
-  {% csrf_token %}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <div class="section">    
-    <label for="email"><h6>Имейл</h6></label>
-    <input type="text" id="email">
-    <label for="pw"><h6>Парола</h6></label>
-    <input type="text" id="pw">
+<div class="container fullPage white-text blue z-depth-3">    
+  <h4 class="left">Вход</h4></br></br>
 
-  </div>
-  <button id="login_button" class="primaryAction teal lighten-5 z-depth-2" type="submit"><h5>{% trans "Влез" %}</h5></button>
-  <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Забравили сте паролата си?" %}</a>
-</form>
+  <form class="login white-text" method="POST" action="{% url 'account_signup' %}">
+    {% csrf_token %}
+    {% if redirect_field_value %}
+    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+    {% endif %}
+    <div class="section">    
+      <label class="white-text left" for="email"><h6>Имейл</h6></label>
+      <input type="text" id="email"></br>
+      <label class="white-text left" for="pw"><h6>Парола</h6></label>
+      <input type="text" id="pw">
 
-{% get_providers as socialaccount_providers %}
-
-{% if socialaccount_providers %}
-<p>{% blocktrans with site.name as site_name %}Please sign in with one
-  of your existing third party accounts. Or, <a href="{{% url 'account_signup' %}}">регистрирай</a>
-  for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
-
-<div class="divider"></div>
-<div class="socialaccount_ballot">
-
-  <ul class="socialaccount_providers">
-    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-  </ul>
-
-  <div class="login-or">{% trans 'or' %}</div>
-
+    </div>
+    <button id="login_button" class="primaryAction teal lighten-5 z-depth-2" type="submit"><h5>Влез</h5></button>
+    <a class="button secondaryAction" href="{% url 'account_reset_password' %}">Забравили сте паролата си?"</a>
+  </form>
 </div>
 
-{% include "socialaccount/snippets/login_extra.html" %}
 
-{% else %}
-<p>{% blocktrans %}Ако нямате направена регистрация, може да се регистрирате
-  <a href="{{% url 'register' %}}">тук</a>.{% endblocktrans %}</p>
-{% endif %}
-
-
-
-</div>
-</div>
 
 {% endblock %}
