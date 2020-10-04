@@ -10,9 +10,9 @@
             
             </div>
             <div class="col s6 fullPage light-blue darken-1 white-text">
-                <h2>Списъци:</h2>
+                <h4>Списъци:</h4>
                 {%for list in lists %}
-                    <h4 class="teal-text text-lighten-2">{{list.author}}</h4>
+                    <h4 class="teal-text text-lighten-2">от: {{list.author}}</h4>
                     <ul class="collection">
                     {%for item in list.items%}
                         <li class="collection-item blue-text">{{item}}</li>
