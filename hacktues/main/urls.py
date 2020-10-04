@@ -10,5 +10,4 @@ urlpatterns = [
     path('room/<int:pk>/', views.room, name='main-room'),
     path('create-room/', views.create_room, name='main-create-room'),
     path('choice/', views.choice, name='main-choice'),
-
 ]

@@ -3,7 +3,9 @@ body {
     font-size: 18px;
     z-index: -1;
 }
-
+input[type=checkbox] {
+    display:block;
+}
 div.container h3 {
     margin-top: 0;
 }

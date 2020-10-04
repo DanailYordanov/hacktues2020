@@ -3,6 +3,7 @@
 <html>
 
 <head>
+    <title>Community Building</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,6 +21,7 @@
     </header>-->
     <nav class="teal lighten-5 z-depth-2">
         <div class="nav-wrapper">
+<<<<<<< HEAD
             <a href="{% url 'main-index'%}" class="brand-logo">
                 <img src="{%static 'main/logo.png'%}" style="width: 130px;">
             </a>
@@ -28,6 +30,14 @@
                 <li><a class="blue-text" href="{% url 'account_logout'%}">Излез</a></li>
                 <li><a class="blue-text" href="{% url 'main-user-profile'%}">Профил</a></li>
                 {% else %}
+=======
+          <a href="{% url 'main-index'%}" class="brand-logo"><img src="{%static 'main/logo.png'%}"></a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            {% if request.user.is_authenticated %}
+                <li><a class="blue-text" href="{% url 'account_logout'%}">Излез</a></li>
+                <li><a class="blue-text" href="{% url 'main-volunteer_profile'%}">{{user.first_name}} {{user.last_name}}</a></li>
+            {% else %}
+>>>>>>> 6452eccab8e684119055e27ddaf2beebcbf8ae24
                 <li><a class="blue-text" href="{% url 'account_login'%}">Влез</a></li>
                 <li><a class="blue-text" href="{% url 'account_signup'%}">Регистрирай се</a></li>
                 {% endif %}

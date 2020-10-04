@@ -1,10 +1,10 @@
 from django.db import models
 from django.conf import settings
 
-
 class Room(models.Model):
     name = models.CharField(max_length=30)
     authentication_code = models.CharField(max_length=5)
+    moderators = models.ManyToManyField(settings.AUTH_USER_MODEL)
 
 
 class RoomMember(models.Model):

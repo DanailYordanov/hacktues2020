@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content%}
+    <div class="container">
+        <div class="row">
+            <div class="col s8 light-blue darken-2 fullPage">
+                <div class="row">
+                    <div class="col s3">
+                        <a href="{% url 'main-create-room'%}" class="waves-effect waves-light btn-large teal lighten-5 blue-text">Добави Сграда</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s4 centered light-blue darken-1 fullPage">
+                <h3 class="white-text">Сгради:<h3>
+                {%for room in rooms%}
+                    <div class="card teal lighten-5">
+                        <div class="card-content blue-text">
+                            <a href="{% url 'main-room_volunteer'%}"><h4>{{room.name}}</h4></a>
+                        </div>
+                    </div>
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+{% endblock content %}

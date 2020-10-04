@@ -99,7 +99,7 @@ def choice(request):
     return render(request, 'main/choice.html')
 
 
-@ login_required
+@login_required
 def create_room(request):
 
     if request.method == 'POST':
