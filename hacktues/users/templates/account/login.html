@@ -14,21 +14,24 @@
 </style>
 
 <div class="container fullPage white-text blue z-depth-3">    
-  <h4 class="left">Вход</h4></br></br>
-
-  <form class="login white-text" method="POST" action="{% url 'account_signup' %}">
-    {% csrf_token %}
-    {% if redirect_field_value %}
-    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-    {% endif %}
-    <div class="section">    
-      <label class="white-text left" for="email"><h6>Имейл</h6></label>
-      <input type="text" id="email"></br>
-      <label class="white-text left" for="pw"><h6>Парола</h6></label>
-      <input type="text" id="pw">
-
+  <form class="login blue" method="POST" action="{% url 'account_signup' %}">
+    <div class="row">
+      <div class="col 11 offset-l1">
+        <h4 class="left">Вход</h4>
+        <p></p>
+        {% csrf_token %}
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        <div class="section">    
+          <label class="white-text left" for="email"><h6>Имейл</h6></label>
+          <input type="text" id="email"></br>
+          <label class="white-text left" for="pw"><h6>Парола</h6></label>
+          <input type="text" id="pw">
+          <button class="btn black-text primaryAction teal lighten-5 z-depth-2" type="submit">Влез</button>
+        </div>
+      </div>
     </div>
-    <button id="login_button" class="primaryAction teal lighten-5 z-depth-2" type="submit"><h5>Влез</h5></button>
     <a class="button secondaryAction" href="{% url 'account_reset_password' %}">Забравили сте паролата си?"</a>
   </form>
 </div>
