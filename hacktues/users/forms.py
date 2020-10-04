@@ -19,9 +19,21 @@ class CustomUserChangeForm(UserChangeForm):
 
 
 class ModeratorSignupForm(SignupForm):
-    first_name = forms.CharField()
-    last_name = forms.CharField()
+    first_name = forms.CharField(required=True)
+    last_name = forms.CharField(required=True)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields.pop('username')
+        self.fields['email'].required = True
+
+
+class UserSignupForm(SignupForm):
+    first_name = forms.CharField(required=True)
+    last_name = forms.CharField(required=True)
+    authentication_code = forms.CharField(required=True)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields.pop('username')
+        self.fields.pop('email')
