@@ -136,3 +136,4 @@ AUTHENTICATION_BACKENDS = [
 
 AUTH_USER_MODEL = 'users.CustomUser'
 SITE_ID = 1
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

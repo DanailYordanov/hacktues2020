@@ -1,15 +1,18 @@
 {% extends 'base.html' %} {% block content %}
-<div class="container">
-    <div class="homepageOpt">
-        <a class="homepageA" href="{% url 'main-volunteer_page'%}">ДОБРОВОЛЕЦ</a>
+<div class="row">
+    <div class="col s6 light-blue darken-2 z-depth-5 fullPage valign-wrapper center-align">
+        <a class="white-text center-align" href="#">
+            <h1>ДОБРОВОЛЕЦ</h1>
+        </a>
     </div>
-    </br>
-    <div class="homepageOpt">
-        <form>
-            <label for="buildingCode">УЧАСТНИК</label></br>
+    <div class="col s6 light-blue darken-1 valign-wrapper center-align fullPage">
+        <form method="POST">
+            {% csrf_token %}
+            <label for="buildingCode"><a class="white-text"><h1>УЧАСТНИК</h1></a></label></br>
             <input type="text" id='buildingCode'></br>
-            <input type="submit" value='Включи се'>
+            <input class="waves-effect waves-light btn-large" type="submit" value='Включи се'>
         </form>
     </div>
 </div>
+
 {%endblock content%}

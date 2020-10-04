@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+	<div class="container">
+		<div class="row">
+			<div class="col s8 light-blue darken-2 z-depth-5 fullPage valign-wrapper center-align">
+				{%for event in events%}
+				<div class="row">
+					<div class="col s12 m6">
+					  <div class="card teal lighten-5">
+						<div class="card-content blue-text">
+						  <span class="card-title">{{ event.title}}</span>
+							<p>
+								{{event.content}}
+							</p>
+						</div>
+						<div class="card-action">
+						  <a href="#">Виж списък</a>
+						</div>
+					  </div>
+					</div>
+				  </div>
+				{%endfor%}
+			</div>
+			<div class="col s4 light-blue darken-1 valign-wrapper center-align fullPage"">
+
+			</div>
+		</div>
+	</div>
+{% endblock content %}
+
