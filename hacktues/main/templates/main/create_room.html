@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
 {% block content%}
-<div class="container">
-    <ul class="nav">
-        <li><a href='{% url "main-volunteer_profile"%}'>Върни се обратно към профила си</a></li>
-    </ul>
-    <div class="centered">
+<div class="container blue darken-2 fullPage z-depth-3">
+    <h5 style="color: white; margin-top:0;padding: 2%;">Създаване на стая</h5>
+    <div class="left-align white-text">
         <form action="{% url 'main-create-room' %}" method="POST">
             {% csrf_token %}
             {{ form }}
-            <button type="submit">Submit</button>
+            <button style="float: right;" type="submit">Създай</button>
         </form>
+        <ul class="nav">
+        <li><a href='{% url "main-volunteer_profile"%}' class="white-text">Върни се обратно към профила си</a></li>
+    </ul>
     </div>
 </div>
 {% endblock content %}
