@@ -67,6 +67,8 @@ def room_user(request):
 
 def choice(request):
     return render(request, 'main/choice.html')
+def create_list(request):
+    return render(request, 'main/create_list.html')
 def room_volunteer(request):
     context = {
         'users': [
@@ -104,7 +106,6 @@ def create_room(request):
         if form.is_valid():
 
             authentication_code = get_random_string(5)
-            moderators = [request.user]
             instance = form.save(commit=False)
             instance.authentication_code = authentication_code
             form.save()

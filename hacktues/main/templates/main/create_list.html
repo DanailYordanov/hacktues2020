@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content%}
+<div class="container">
+    <div class="centered">
+        <ul id="rootList">
+            <li><input type="text"></li>
+            <button class="green white-text" onclick="addField"><strong>Add field</strong></button>
+        </ul>
+    </div>
+</div>
+<script>
+    function addField() {
+        var rootList = document.getElementById("rootList")
+        var newField = document.createElement("LI")
+        document.rootList.appendChild(newField)
+    }
+</script>
+{% endblock content %}

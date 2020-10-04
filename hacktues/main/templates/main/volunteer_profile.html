@@ -2,17 +2,14 @@
 {% block content%}
     <div class="container">
         <div class="row">
-            <div class="col s8 centered light-blue darken-2 fullPage">
-                <h3 class="white-text">Лични данни:</h3></br>
-                <div class="card teal lighten-5">
-                    <div class="card-content blue-text">
-                        <p class="left">Име: {{user.first_name}}</p></br>
-                        <p class="left">Фамилия: {{user.last_name}}</p>
+            <div class="col s8 light-blue darken-2 fullPage">
+                <div class="row">
+                    <div class="col s3">
+                        <a href="{% url 'main-create-room'%}" class="waves-effect waves-light btn-large teal lighten-5 blue-text">Добави Сграда</a>
                     </div>
                 </div>
             </div>
             <div class="col s4 centered light-blue darken-1 fullPage">
-                <a href="{% url 'main-create-room'%}" class="waves-effect waves-light btn-large teal lighten-5 blue-text">Добави Сграда</a>
                 <h3 class="white-text">Сгради:<h3>
                 {%for room in user.rooms%}
                     <div class="card teal lighten-5">

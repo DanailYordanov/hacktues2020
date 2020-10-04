@@ -20,11 +20,11 @@
     </header>-->
     <nav class="teal lighten-5 z-depth-2">
         <div class="nav-wrapper">
-          <a href="{% url 'main-index'%}" class="brand-logo"><image src="{%static 'main/logo.png'%}"></image>></a>
+          <a href="{% url 'main-index'%}" class="brand-logo"><img src="{%static 'main/logo.png'%}"></a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             {% if request.user.is_authenticated %}
                 <li><a class="blue-text" href="{% url 'account_logout'%}">Излез</a></li>
-                <li><a class="blue-text" href="{% url 'main-volunteer_profile'%}">Профил</a></li>
+                <li><a class="blue-text" href="{% url 'main-volunteer_profile'%}">{{user.first_name}} {{user.last_name}}</a></li>
             {% else %}
                 <li><a class="blue-text" href="{% url 'account_login'%}">Влез</a></li>
                 <li><a class="blue-text" href="{% url 'account_signup'%}">Регистрирай се</a></li>
