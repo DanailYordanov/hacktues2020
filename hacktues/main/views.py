@@ -16,23 +16,49 @@ def volunteer_login(request):
 def user_login(request):
     return render(request, 'main/user_login.html')
 
-
+def event_detail(request):
+    context = {
+        'event': {
+            'title': 'ПЪРВО СЪБИТИЕ!',
+            'author':'Калоян',
+            'content': 'Ще посещавам Kaufland в квартала на 6 октомври около 12 часа. Ако имате заявки пратете списък!',
+            'id': 1,
+            'date_posted': '4 Октомври 2020 17:39',
+        },
+        'lists': [
+            {
+                'author': 'Радка Тодорова',
+                'items': [
+                    'Яйца',
+                    'Хляб',
+                    'Мляко',
+                    'Кафе'
+                ]
+            },
+            {
+                'author': 'Илияна Вълева',
+                'items': [
+                    'Брашно',
+                    'Олио',
+                    'Захар',
+                    'Кисело мляко',
+                    'Вода'
+                ]
+            }
+        ]
+    }
+    return render(request, 'main/event_detail.html', context)
 def volunteer_profile(request):
     context = {
-        'user': {
-            'first_name': 'Калоян',
-            'last_name': 'Георгиев',
-            'login': 'kalooo914@gmail.com',
-            'rooms': [
-                {
-                    'id': 1,
-                    'name': 'бл. 822 ж.к. Люлин 8',
-                }
-            ]
+        'rooms': [
+            {
+                'id': 1,
+                'name': 'бл. 822 ж.к. Люлин 8',
+            }
+        ]
 
-        }
     }
-    return render(request, 'main/volunteer_profile.html')
+    return render(request, 'main/volunteer_profile.html', context)
 
 def create_event(request):
     return render(request, 'main/create_event.html')

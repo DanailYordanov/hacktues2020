@@ -11,7 +11,7 @@
             </div>
             <div class="col s4 centered light-blue darken-1 fullPage">
                 <h3 class="white-text">Сгради:<h3>
-                {%for room in user.rooms%}
+                {%for room in rooms%}
                     <div class="card teal lighten-5">
                         <div class="card-content blue-text">
                             <a href="{% url 'main-room_volunteer'%}"><h4>{{room.name}}</h4></a>
