@@ -1,11 +1,10 @@
 from django.contrib import admin
 from django.urls import path, include
-from users import views as auth_views
+from django.views.defaults import page_not_found
+from users import views as users_views
+
 urlpatterns = [
     path('', include('main.urls')),
     path('admin/', admin.site.urls),
-    path('accounts/', include('allauth.urls')),
-    path('register/', auth_views.register, name='register'),
-    path('login/', auth_views.login, name= 'login'),
-    path('password_reset/', auth_views.password_reset, name='password_reset'),
+    path('accounts/', include('allauth.urls'))
 ]

@@ -27,13 +27,11 @@
 			</div>
 			<div class="col s4 light-blue darken-1 valign-wrapper center-align fullPage"">
 				<h3 class="white-text">Участници:</h3>
-				{%for user in users %}
-					<ul class="collection">
-						<li class="collection-item teal lighten-5">{{user}}</li>
-				 	</ul>
-				{%endfor%}
+				<ul class="collection">
+					{% for user in users %}
+						<li class="collection-item">{{user}}</li>
+					{%endfor%}
+				</ul>
 			</div>
 		</div>
 	</div>
-{% endblock content %}
-

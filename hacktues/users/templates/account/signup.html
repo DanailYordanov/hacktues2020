@@ -5,19 +5,37 @@
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-<h1>{% trans "Регистрация" %}</h1>
 
-<p>{% blocktrans %}Вече имате регистрация? Тогава можете да <a href="{{ login_url }}">влезете</a>.{% endblocktrans %}</p>
-
-<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+<div class="container blue fullPage white-text z-depth-3">
+<form class="signup blue" id="signup_form" method="post" action="{% url 'account_signup' %}">
   {% csrf_token %}
-  {{ form.as_p }}
+  <div class="row">
+    <div class="col l4 offset-l1">
+      <h1 class="">{% trans "Регистрация" %}</h1>
+      <p>{% blocktrans %}Вече имате регистрация? Тогава можете да <a href="{{ login_url }}" class="black-text">влезете</a>.{% endblocktrans %}</p>
+      
+      {{ form.as_p }}
+
+      <!--<label class="white-text left">Електронна поща</label>
+      <input name="password" class="blue lighten-2">
+      <label class="white-text left ">Име</label>
+      <input name="name" class="blue lighten-2">
+      <label class="white-text left">Парола</label>
+      <input type="password" name="password" class="blue lighten-2">
+      <label class="white-text left">Повтори парола</label>
+      <input type="password" name="password" class="blue lighten-2">-->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col l2 offset-l1 ">
+      <button type="submit"  id="smbtn" class="btn waves-effect wave-light">
+        Регистрирай се
+      </button>
+    </div>
+  </div>
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
-  <label for="name">Име:</label>
-  <input id="name" type="text">
-  <button type="submit">{% trans "Sign Up" %} &raquo;</button>
 </form>
-
+</div>
 {% endblock %}
