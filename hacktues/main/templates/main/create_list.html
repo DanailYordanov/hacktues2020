@@ -2,17 +2,22 @@
 {% block content%}
 <div class="container">
     <div class="centered">
-        <ul id="rootList">
-            <li><input type="text"></li>
-            <button class="green white-text" onclick="addField"><strong>Add field</strong></button>
-        </ul>
+        <form action="{% url 'main-room_user'%}"> 
+            <ul id="rootList">
+                <input type="text">
+            </ul>
+            <button type="submit" class="red white-text right"><strong>Изпрати</strong></button>
+        </form>
+        <button class="green white-text" onclick="addField()"><strong>Добави поле</strong></button>
     </div>
 </div>
 <script>
-    function addField() {
-        var rootList = document.getElementById("rootList")
-        var newField = document.createElement("LI")
-        document.rootList.appendChild(newField)
+    function addField(event) {
+        var rootList = document.getElementById("rootList");
+        var newField = document.createElement("input");
+        newField.type = 'text';
+        console.log("works");
+        rootList.appendChild(newField);
     }
 </script>
 {% endblock content %}
