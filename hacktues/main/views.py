@@ -1,41 +1,70 @@
-from django.shortcuts import render, redirect
-from .forms import CreateRoomForm
+from django.shortcuts import render, redirect, get_object_or_404
+from .forms import CreateRoomForm, CreateEventForm
 from .models import RoomMember, Room
 from django.utils.crypto import get_random_string
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import PermissionDenied
 
 
 def index(request):
     return render(request, 'main/index.html')
 
 
-def volunteer_login(request):
-    return render(request, 'main/volunteer_login.html')
+def user_profile(request):
 
+    room_members = RoomMember.objects.filter(user=request.user)
+    rooms = []
 
-def user_login(request):
-    return render(request, 'main/user_login.html')
+    for room_member in room_members:
+        rooms.append(room_member.room)
 
-
-def volunteer_profile(request):
     context = {
-        'user': {
-            'first_name': 'Калоян',
-            'last_name': 'Георгиев',
-            'login': 'kalooo914@gmail.com',
-            'rooms': [
-                {
-                    'id': 1,
-                    'name': 'бл. 822 ж.к. Люлин 8',
-                }
-            ]
-
-        }
+        'rooms': rooms
     }
-    return render(request, 'main/volunteer_profile.html')
 
-def create_event(request):
-    return render(request, 'main/create_event.html')
+    return render(request, 'main/user_profile.html', context)
+
+
+def create_event(request, room_id):
+
+    room = get_object_or_404(Room, id=room_id)
+
+    if request.method == 'POST':
+        form = CreateEventForm(request.POST)
+
+        if form.is_valid():
+
+            instance = form.save(commit=False)
+            instance.room = room
+            form.save()
+
+            return redirect('main-room', pk=room.id)
+
+    else:
+        form = CreateEventForm()
+
+    context = {
+        'form': form,
+        'room_id': room_id
+    }
+
+    return render(request, 'main/create_event.html', context)
+
+
+def room(request, pk):
+    room = get_object_or_404(Room, id=pk)
+
+    users = []
+    for room_member in room.room_members.all():
+        users.append(room_member.user)
+
+    if request.user in users:
+        context = {
+            'room': room
+        }
+        return render(request, 'main/room.html', context)
+    else:
+        raise PermissionDenied
 
 
 def room_user(request):
@@ -49,7 +78,7 @@ def room_user(request):
         'events': [
             {
                 'title': 'ПЪРВО СЪБИТИЕ!',
-                'author':'Калоян',
+                'author': 'Калоян',
                 'content': 'Ще посещавам Kaufland в квартала на 6 октомври около 12 часа. Ако имате заявки пратете списък!',
                 'id': 1,
                 'date_posted': '4 Октомври 2020 17:39'
@@ -65,37 +94,12 @@ def room_user(request):
     }
     return render(request, 'main/room_user.html', context)
 
+
 def choice(request):
     return render(request, 'main/choice.html')
-def room_volunteer(request):
-    context = {
-        'users': [
-            'Пенка Георгиева',
-            'Радка Тодорова',
-            'Васил Тодоров',
-            'Илияна Вълева'
-        ],
-        'events': [
-            {
-                'title': 'ПЪРВО СЪБИТИЕ!',
-                'author':'Калоян',
-                'content': 'Ще посещавам Kaufland в квартала на 6 октомври около 12 часа. Ако имате заявки пратете списък!',
-                'id': 1,
-                'date_posted': '4 Октомври 2020 17:39'
-            },
-            {
-                'title': 'Събитие второ',
-                'author': 'Дани',
-                'content': 'Това е второто събитие',
-                'id': 2,
-                'date_posted': '2 Октомври 2020 14:56'
-            }
-        ]
-    }
-    return render(request, 'main/room_volunteer.html', context)
 
 
-@login_required
+@ login_required
 def create_room(request):
 
     if request.method == 'POST':
@@ -104,7 +108,6 @@ def create_room(request):
         if form.is_valid():
 
             authentication_code = get_random_string(5)
-            moderators = [request.user]
             instance = form.save(commit=False)
             instance.authentication_code = authentication_code
             form.save()
@@ -112,7 +115,7 @@ def create_room(request):
             RoomMember.objects.create(
                 room=instance, user=request.user, is_moderator=True)
 
-            return redirect('room')
+            return redirect('main-room', pk=instance.id)
 
     else:
         form = CreateRoomForm()

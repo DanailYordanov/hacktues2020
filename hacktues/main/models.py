@@ -8,7 +8,15 @@ class Room(models.Model):
 
 
 class RoomMember(models.Model):
-    room = models.ForeignKey(Room, on_delete=models.CASCADE)
+    room = models.ForeignKey(
+        Room, on_delete=models.CASCADE, related_name='room_members')
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)
     is_moderator = models.BooleanField()
+
+
+class Event(models.Model):
+    room = models.ForeignKey(
+        Room, on_delete=models.CASCADE, related_name='room_events')
+    creation_date = models.DateTimeField(auto_now_add=True)
+    event = models.CharField(max_length=100)
