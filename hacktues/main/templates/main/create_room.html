@@ -2,7 +2,7 @@
 {% block content %}
 <div class="container">
     <ul class="nav">
-        <li><a href='{% url "main-user-profile"%}'>Върни се обратно към профила си</a></li>
+        <li><a href='{% url "main-user-profile" %}'>Върни се обратно към профила си</a></li>
     </ul>
     <div class="centered">
         <form action="{% url 'main-create-room' %}" method="POST">
