@@ -1,23 +1,13 @@
 {% extends 'base.html' %}
-{% block content%}
+{% block content %}
 <div class="container">
     <div class="centered">
-        <form action="{% url 'main-room_user'%}"> 
-            <ul id="rootList">
-                <input type="text">
-            </ul>
-            <button type="submit" class="red white-text right"><strong>Изпрати</strong></button>
+        <form action="{% url 'main-create-list' pk=event_pk %}" method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit">Изпрати</button>
         </form>
-        <button class="green white-text" onclick="addField()"><strong>Добави поле</strong></button>
     </div>
 </div>
-<script>
-    function addField(event) {
-        var rootList = document.getElementById("rootList");
-        var newField = document.createElement("input");
-        newField.type = 'text';
-        console.log("works");
-        rootList.appendChild(newField);
-    }
-</script>
+</div>
 {% endblock content %}

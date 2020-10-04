@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import CreateRoomForm, CreateEventForm
-from .models import RoomMember, Room
+from .forms import CreateRoomForm, CreateEventForm, CreateEventListForm
+from .models import RoomMember, Room, Event, EventList
 from django.utils.crypto import get_random_string
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
@@ -36,6 +36,7 @@ def create_event(request, room_id):
 
             instance = form.save(commit=False)
             instance.room = room
+            instance.user = request.user
             form.save()
 
             return redirect('main-room', pk=room.id)
@@ -97,3 +98,43 @@ def create_room(request):
     }
 
     return render(request, 'main/create_room.html', context)
+
+
+def create_list(request, pk):
+
+    event = get_object_or_404(Event, id=pk)
+
+    if request.method == 'POST':
+        form = CreateEventListForm(request.POST)
+
+        if form.is_valid():
+
+            instance = form.save(commit=False)
+            instance.event = event
+            instance.user = request.user
+            form.save()
+
+            return redirect('main-event-detail', pk=event.id)
+
+    else:
+        form = CreateEventListForm()
+
+    context = {
+        'form': form,
+        'event_pk': event.id
+    }
+
+    return render(request, 'main/create_list.html', context)
+
+
+def event_detail(request, pk):
+
+    event = get_object_or_404(Event, id=pk)
+    lists = EventList.objects.filter(event=event)
+
+    context = {
+        'event': event,
+        'lists': lists
+    }
+
+    return render(request, 'main/event_detail.html', context)

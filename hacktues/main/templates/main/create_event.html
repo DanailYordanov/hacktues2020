@@ -7,7 +7,7 @@
         <form action="{% url 'main-create-event' room_id=room_id %}" method="POST">
             {% csrf_token %}
             {{ form }}
-            <button type="submit">Submit</button>
+            <button type="submit">Изпрати</button>
         </form>
     </div>
 </div>
