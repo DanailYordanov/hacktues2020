@@ -1,13 +1,19 @@
 body {
     color: black;
-    font-size:18px;
+    font-size: 18px;
     z-index: -1;
 }
+
+div.container h3 {
+    margin-top: 0;
+}
+
 div.fullPage {
     height: 100vh;
     text-align: center;
-    display:block;
+    display: block;
 }
+
 input[type="submit"] {
     padding: 20px;
 }
