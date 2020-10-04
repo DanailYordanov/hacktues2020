@@ -1,17 +1,10 @@
 {% extends "account/base.html" %}
-
-{% load i18n %}
-{% load account socialaccount %}
-
-{% block head_title %}{% trans "Sign In" %}{% endblock %}
-
 {% block content %}
 <style>
   #login_button {
     float:right;
     text-align: center; 
   }
-
   #container{
     margin-top: 2%;
     padding: 2%;
@@ -65,4 +58,5 @@
 <p>{% blocktrans %}Ако нямате направена регистрация, може да се регистрирате
   <a href="{{% url 'register' %}}">тук</a>.{% endblocktrans %}</p>
 {% endif %}
+
 {% endblock %}
