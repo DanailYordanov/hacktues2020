@@ -1,43 +1,33 @@
 {% extends "account/base.html" %}
 {% block content %}
-<style>
-  #login_button {
-    float:right;
-    text-align: center; 
-  }
-/*  #container{
-    margin-top: 2%;
-    padding: 2%;
-    border-style: double;
-
-  }*/
-</style>
 
 
-<div class="container fullPage white-text blue z-depth-3">    
+
+<div class="container fullPage white-text blue z-depth-3"> 
   <form class="login blue" method="POST" action="{% url 'account_signup' %}">
     <div class="row">
       <div class="col 11 offset-l1">
-        <h4 class="left">Вход</h4>
-        <p></p>
         {% csrf_token %}
         {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
-        <div class="section">    
-          <label class="white-text left" for="email"><h6>Имейл</h6></label>
+        <h4 class="left">Вход</h4>
+        <div class="section">     
+          <br><br><br>
+          <label class="white-text left" for="email"><h6>Електронна поща</h6></label>
           <input type="text" id="email"></br>
           <label class="white-text left" for="pw"><h6>Парола</h6></label>
           <input type="text" id="pw">
-          <button class="btn black-text primaryAction teal lighten-5 z-depth-2" type="submit">Влез</button>
+          <button class="btn black-text primaryAction teal lighten-5 z-depth-2" style="float: right;"type="submit">Влез</button>
         </div>
-      </div>
+      
+      <p style="float: left;">Ако нямате регистрация, може да се регистрирате <a style="color: grey;"href="{% url 'account_signup' %}">тук</a>.</p><br>
+      <a style="float: left;" class="button secondaryAction white-text" href="{% url 'account_reset_password' %}">Забравили сте паролата си?</a>
     </div>
-    <a class="button secondaryAction" href="{% url 'account_reset_password' %}">Забравили сте паролата си?"</a>
+    </div>
   </form>
 </div>
 
 
->>>>>>> 168c38299daa488c1a1f772946d62ca450ece895
 
 {% endblock %}
