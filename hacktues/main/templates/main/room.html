@@ -4,6 +4,7 @@
 	<div class="row">
 		<div class="col s8 light-blue darken-2 z-depth-5 fullPage valign-wrapper center-align">
 			<h3 class="white-text">Събития:</h3>
+			<a href="{% url 'main-create-event' room_id=room.id %}">Добави събитие</a>
 			{% for event in room.room_events.all %}
 			<div class="row">
 				<div class="col s12 m8">
@@ -17,7 +18,7 @@
 							</p>
 						</div>
 						<div class="card-action">
-							<a class="grey-text" href="{% url 'main-create-event' room_id=room.id %}">Изпрати списък</a>
+							<a class="grey-text" href="{% url 'main-create-list' pk=event.id %}">Изпрати списък</a>
 							<a class="grey-text" href="{% url 'main-event-detail' pk=event.id %}">Виж списък</a>
 						</div>
 					</div>
